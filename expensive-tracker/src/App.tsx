@@ -5,6 +5,7 @@ import { items } from './data/items';
 import { categories } from './data/categories';
 import { useEffect, useState } from 'react';
 import { getCurrentMonth, filterListByMonth } from './helpers/dataFilter';
+import { TableArea } from './components/TableArea';
 
 const App = () => {
   const [list, setList] = useState(items); // Lista completa
@@ -25,7 +26,7 @@ const App = () => {
 
         {/* Área de insrção*/}
 
-        {/* Tabela de itens*/}
+        <TableArea list={filteredList}/>
 
       </C.Body>
     </C.Container>
