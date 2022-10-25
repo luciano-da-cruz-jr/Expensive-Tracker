@@ -1,12 +1,15 @@
 import { formatCurrentMonth } from '../../helpers/dataFilter';
+import { ResumeItem } from '../ResumeItem';
 import * as C from './styles';
 
 type Props = {
     currentMonth: string;
     onMonthChange: (newMonth: string) => void
+    income: number;
+    expensive: number
 }
 
-export const InfoArea = ({currentMonth, onMonthChange}: Props) => {
+export const InfoArea = ({currentMonth, onMonthChange, income, expensive}: Props) => {
 
     const handlePrevMonth = () =>{
         let [year, month] = currentMonth.split('-');
@@ -30,7 +33,13 @@ export const InfoArea = ({currentMonth, onMonthChange}: Props) => {
                 <C.MonthArrow onClick={handleNextMonth}>➡️</C.MonthArrow>
             </C.MonthArea>
             <C.ResumeArea>
-                ...
+                <ResumeItem title="Receitas" value={income}/>
+                <ResumeItem title="Despesas" value={expensive}/>
+                <ResumeItem 
+                    title="Balanço" 
+                    value={income - expensive}
+                    color={(income - expensive < 0 ? 'red' : 'green')}
+                    />
             </C.ResumeArea>
         </C.Container>
     );
