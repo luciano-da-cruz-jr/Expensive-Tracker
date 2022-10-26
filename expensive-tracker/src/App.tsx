@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { getCurrentMonth, filterListByMonth } from './helpers/dataFilter';
 import { TableArea } from './components/TableArea';
 import { InfoArea } from './components/InfoArea';
-import { ImputArea } from './components/ImputArea';
+import { InputArea } from './components/InputArea';
 
 const App = () => {
   const [list, setList] = useState(items); // Lista completa
@@ -60,7 +60,7 @@ const App = () => {
           expensive={expensive}
         />
 
-       <ImputArea onAdd={handleAddItem}/>
+       <InputArea onAdd={handleAddItem}/>
 
         <TableArea list={filteredList}/>
 
